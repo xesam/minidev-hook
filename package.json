@@ -1,22 +1,22 @@
 {
     "name": "@mini-dev/hook",
-    "version": "0.3.0",
+    "version": "0.4.0",
     "description": "miniapp framework methods(App, Page, Component) hook",
     "miniprogram": "libs",
     "main": "libs/index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "jest"
     },
     "repository": {
         "type": "git",
-        "url": "git+git@github.com:miniapp-develop/hook.git"
+        "url": "git+git@github.com:xesam/minidev-hook.git"
     },
     "bugs": {
-        "url": "https://github.com/miniapp-develop/hook"
+        "url": "https://github.com/xesam/minidev-hook"
     },
-    "homepage": "https://github.com/miniapp-develop/hook",
+    "homepage": "https://github.com/xesam/minidev-hook",
     "dependencies": {
-        "@xesam/hook": "^0.1.6"
+        "object-hook": "^0.1.0"
     },
     "devDependencies": {
         "jest": "29.7.0"

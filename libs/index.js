@@ -1,4 +1,9 @@
-const { hook } = require('@xesam/hook');
+const { createHook } = require('object-hook');
+
+const hook = createHook({
+    allowMissing: true,
+    allowCreate: true
+});
 
 function create(constructor) {
     const _origin = constructor;

@@ -11,6 +11,17 @@
     npm install @mini-dev/hook
 ```
 
+> ⚠️ **注意**：由于 `@mini-dev/hook` 内部依赖 `object-hook`，如果通过本地路径（如 `file:..`）引用本仓库进行开发，微信开发者工具的 npm 构建不会自动递归打包该依赖，需要在**你的小程序项目的 `package.json` 中显式声明 `object-hook` 依赖**：
+>
+> ```json
+> "dependencies": {
+>     "@mini-dev/hook": "0.4.0",
+>     "object-hook": "^0.1.0"
+> }
+> ```
+>
+> 安装依赖后，重新执行 **工具 → 构建 npm** 即可。
+
 ### 配置钩子
 
 一个示例如下：
@@ -132,13 +143,21 @@ newComponent.mount('Component', wx);
 
 _由于 App，Page 等方法是框架内置的，不太建议覆盖框架的方法，指不定那天就出问题了。建议使用包装的方式创建新的构造函数。_
 
+## Hook 语义
+
+当前版本内部基于 `object-hook`，并以兼容模式运行：
+
+- 缺失的方法路径会被自动补齐，便于给 `onShareAppMessage` 这类可选方法统一加兜底逻辑；
+- 如果某个 builder 返回 `false`、`null` 或 `undefined`，当前路径会被跳过，不会创建 hook；
+- `before`、`afterReturn`、`afterThrow`、`after` 的语义与 `object-hook` 保持一致。
+
 ## 完整的例子
 
 参见 [sample 文件夹](./sample/)
 
 ## ChangeLogs
 
-### 0.3.0
+### 0.4.0
 
 1. 增加 mount 方法;
 2. 补全 share 示例；

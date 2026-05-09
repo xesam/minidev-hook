@@ -36,8 +36,13 @@
     "useCompilerModule": false,
     "userConfirmedUseCompilerModuleSwitch": false,
     "userConfirmedBundleSwitch": false,
-    "packNpmManually": false,
-    "packNpmRelationList": [],
+    "packNpmManually": true,
+    "packNpmRelationList": [
+      {
+        "packageJsonPath": "./sample/package.json",
+        "miniprogramNpmDistDir": "./sample"
+      }
+    ],
     "minifyWXSS": true,
     "lazyloadPlaceholderEnable": false,
     "useStaticServer": true,
