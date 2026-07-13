@@ -1,0 +1,11 @@
+{
+  "modes": [
+    {
+      "page": "pages/index/index",
+      "query": "",
+      "debugAppxSceneCode": "null",
+      "pageQuery": "id=001&name=%E6%B5%8B%E8%AF%95%E5%90%8D%E7%A7%B0",
+      "title": "pages/index/index"
+    }
+  ]
+}

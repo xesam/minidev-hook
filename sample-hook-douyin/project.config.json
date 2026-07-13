@@ -1,0 +1,32 @@
+{
+    "setting": {
+        "urlCheck": true,
+        "es6": true,
+        "postcss": true,
+        "minified": true,
+        "newFeature": true,
+        "autoCompile": true,
+        "compileHotReLoad": true,
+        "nativeCompile": true
+    },
+    "appid": "tt9d60ebdd024a1c67",
+    "projectname": "sample-hook-douyin",
+    "douyinProjectType": "native",
+    "condition": {
+        "miniprogram": {
+            "current": 1783920599630,
+            "list": [
+                {
+                    "id": 1783920599630,
+                    "name": "pages/index/index",
+                    "pathName": "pages/index/index",
+                    "query": "id=001&name=%E6%B5%8B%E8%AF%95%E5%90%8D%E7%A7%B0",
+                    "scene": "990001",
+                    "launchFrom": "scan",
+                    "location": "qr_code",
+                    "mockUpdateType": "Noupdate"
+                }
+            ]
+        }
+    }
+}

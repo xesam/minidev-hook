@@ -1,4 +1,4 @@
-sample
+sample*
 project.config.json
 project.private.config.json
 package-lock.json
@@ -7,6 +7,5 @@ node_modules
 *.iml
 test
 __test__
-tests
 .eslintrc.cjs
 .prettierrc.json

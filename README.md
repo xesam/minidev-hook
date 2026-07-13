@@ -1,28 +1,40 @@
-# 微信小程序 Hook
+# @mini-dev/hook
 
-拦截并增强小程序组件（App, Page, Component）的 Option 方法，可以把公共或者兜底的方法（以及配置）进行统一配置，比如为每个页面都添加分享，一次配置，全页面生效。
+拦截并增强小程序框架方法（App, Page, Component）的 Option，可以把公共或者兜底的方法（以及配置）进行统一配置，比如为每个页面都添加分享，一次配置，全页面生效。
+
+不局限于微信小程序：同一套 API 已经在微信、支付宝、抖音小程序中验证可用（见下方各平台示例），发布产物同时提供 CJS 与 ESM 两份构建（详见[开发 / 构建](#开发--构建)），也可以直接在标准 Node.js / 打包器环境下使用。
 
 ## Usage
 
-开启微信小程序的 npm 支持：
-[https://developers.weixin.qq.com/miniprogram/dev/devtools/npm.html](https://developers.weixin.qq.com/miniprogram/dev/devtools/npm.html)
+先给项目开启 npm 支持（各小程序平台的开发者工具都需要单独开启/构建一次）：
+
+- 微信小程序：[https://developers.weixin.qq.com/miniprogram/dev/devtools/npm.html](https://developers.weixin.qq.com/miniprogram/dev/devtools/npm.html)
+- 支付宝小程序：[https://opendocs.alipay.com/mini/ide/npm-manage](https://opendocs.alipay.com/mini/ide/npm-manage)
+- 抖音小程序：[https://developer.open-douyin.com/docs/resource/zh-CN/mini-app/develop/framework/npm](https://developer.open-douyin.com/docs/resource/zh-CN/mini-app/develop/framework/npm)
 
 ```shell script
     npm install @mini-dev/hook
 ```
 
-> ⚠️ **注意**：由于 `@mini-dev/hook` 内部依赖 `object-hook`，如果通过本地路径（如 `file:..`）引用本仓库进行开发，微信开发者工具的 npm 构建不会自动递归打包该依赖，需要在**你的小程序项目的 `package.json` 中显式声明 `object-hook` 依赖**：
->
-> ```json
-> "dependencies": {
->     "@mini-dev/hook": "0.4.0",
->     "object-hook": "^0.1.0"
-> }
-> ```
->
-> 安装依赖后，重新执行 **工具 → 构建 npm** 即可。
-
 ### 配置钩子
+
+发布产物同时支持 CommonJS 与 ES Module，按项目的构建方式任选一种写法即可：
+
+```javascript
+// CommonJS
+const { _App, _Page, _Component } = require('@mini-dev/hook');
+```
+
+```javascript
+// ES Module（具名导入）
+import { _App, _Page, _Component } from '@mini-dev/hook';
+```
+
+```javascript
+// ES Module（默认导入，等价于上面具名导入的集合）
+import MiniHook from '@mini-dev/hook';
+const { _App, _Page, _Component } = MiniHook;
+```
 
 一个示例如下：
 
@@ -65,6 +77,8 @@ _Component.use({
     }
 });
 ```
+
+> 示例里的 `wx.showModal` 是微信小程序的全局 API，仅作演示；支付宝小程序换成 `my.showModal`，抖音小程序换成 `tt.showModal`，本库的 hook 逻辑与具体平台的全局 API 无关。
 
 app.js
 
@@ -153,9 +167,33 @@ _由于 App，Page 等方法是框架内置的，不太建议覆盖框架的方�
 
 ## 完整的例子
 
-参见 [sample 文件夹](./sample/)
+按平台分别提供了完整的小程序示例工程：
+
+- 微信小程序：[sample-hook-wechat](./sample-hook-wechat/)
+- 支付宝小程序：[sample-hook-alipay](./sample-hook-alipay/)
+- 抖音小程序：[sample-hook-douyin](./sample-hook-douyin/)
+
+## 开发 / 构建
+
+源码位于 `src/`，使用标准 ES6 `import`/`export` 编写。发布产物构建到 `dist/`，同时输出两份，均已内联 `object-hook`（零外部依赖）：
+
+- `dist/index.js`：打包后的单文件 CJS，供 Node/npm `require` 及小程序 npm 构建共用；
+- `dist/esm/index.js`：打包后的单文件 ESM，供支持 `import` 的现代 npm/bundler 消费。
+
+```shell script
+npm install
+npm run build   # 生成 dist/
+npm test        # 直接对 src/ 跑测试，无需先构建
+```
 
 ## ChangeLogs
+
+### 0.5.0
+
+1. 源码迁移到 `src/`，改用标准 ES6 `import`/`export` 编写；发布产物迁移到 `dist/`，同时输出打包后的 CJS（`dist/index.js`）与 ESM（`dist/esm/index.js`）；
+2. 两份产物均已内联 `object-hook`，消费方不再需要在自己的 `package.json` 中显式声明 `object-hook` 依赖；
+3. 移除 `package.json` 中的 `miniprogram` 字段，小程序与 npm 共用同一个打包后的 `main` 入口；
+4. 补充微信 / 支付宝 / 抖音三个平台的完整示例工程，README 相应更新为跨平台描述。
 
 ### 0.4.0
 

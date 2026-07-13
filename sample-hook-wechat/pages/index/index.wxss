@@ -1,0 +1,30 @@
+.container {
+    padding-bottom: 4em;
+}
+.header {
+    padding: 36rpx 0;
+    text-align: center;
+    font-size: 56rpx;
+    color: darkcyan;
+}
+
+.action {
+    padding: 24rpx;
+    text-align: center;
+    margin: 0.5em 0.5em;
+    background: #72bbf7;
+    color: rgb(255, 255, 255);
+}
+
+.action.no-share {
+    background-color: rgb(248, 232, 84);
+    color: black;
+}
+.action.custom-share {
+    background: #07c160;
+    color: rgb(255, 255, 255);
+}
+
+.custom-class {
+    color: red;
+}

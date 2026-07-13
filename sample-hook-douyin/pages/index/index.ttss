@@ -1,0 +1,16 @@
+.intro {
+  margin: 30px;
+  text-align: center;
+}
+
+.icon-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 40px 0 0px;
+}
+
+.icon-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+}

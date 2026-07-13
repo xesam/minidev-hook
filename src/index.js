@@ -1,11 +1,11 @@
-const { createHook } = require('object-hook');
+import { createHook } from 'object-hook';
 
 const hook = createHook({
     allowMissing: true,
     allowCreate: true
 });
 
-function create(constructor) {
+export function create(constructor) {
     const _origin = constructor;
     function $Constructor(option) {
         return $Constructor.init(option, _origin);
@@ -38,8 +38,12 @@ function create(constructor) {
     return $Constructor;
 }
 
-const _App = create(App);
-const _Page = create(Page);
-const _Component = create(Component);
-
-module.exports = { create, _App, _Page, _Component };
+export const _App = create(App);
+export const _Page = create(Page);
+export const _Component = create(Component);
+export default {
+    create,
+    _App,
+    _Page,
+    _Component
+};

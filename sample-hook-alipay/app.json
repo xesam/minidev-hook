@@ -1,0 +1,9 @@
+{
+    "pages": [
+        "pages/index/index"
+    ],
+    "window": {
+        "defaultTitle": "Alipay",
+        "titleBarColor": "#fff"
+    }
+}

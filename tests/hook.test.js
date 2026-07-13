@@ -3,7 +3,7 @@ function loadLibrary() {
     global.App = jest.fn((option) => option);
     global.Page = jest.fn((option) => option);
     global.Component = jest.fn((option) => option);
-    return require('../libs');
+    return require('../src');
 }
 
 describe('@mini-dev/hook', () => {

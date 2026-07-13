@@ -1,13 +1,12 @@
 {
-    "name": "miniapp-hook-sample",
-    "version": "0.4.0",
+    "name": "sample-hook-wechat",
+    "version": "0.0.0",
     "main": "app.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "dependencies": {
-        "@mini-dev/hook": "file:..",
-        "object-hook": "^0.1.0"
+        "@mini-dev/hook": "file:.."
     },
     "keywords": [],
     "author": "",

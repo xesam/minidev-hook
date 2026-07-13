@@ -1,0 +1,5 @@
+<view class="container">
+    <view class="header">
+        @mini-dev/hook (Douyin)
+    </view>
+</view>
