@@ -188,6 +188,10 @@ npm test        # 直接对 src/ 跑测试，无需先构建
 
 ## ChangeLogs
 
+### 0.5.1
+
+1. `object-hook` 依赖从 `devDependencies` 调整为 `dependencies` 并升级至 `^0.1.1`（源码运行时实际依赖该包，此前声明位置不准确）。
+
 ### 0.5.0
 
 1. 源码迁移到 `src/`，改用标准 ES6 `import`/`export` 编写；发布产物迁移到 `dist/`，同时输出打包后的 CJS（`dist/index.js`）与 ESM（`dist/esm/index.js`）；
