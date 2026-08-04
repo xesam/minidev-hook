@@ -286,6 +286,14 @@ npm test        # 直接对 src/ 跑测试，无需先构建
 
 ## 6. ChangeLogs
 
+### 0.5.3
+
+1. 仅版本号升级，无源码与发布产物变更。
+
+### 0.5.2
+
+1. `object-hook` 依赖升级至 `^0.1.3`。
+
 ### 0.5.1
 
 1. `object-hook` 依赖从 `devDependencies` 调整为 `dependencies` 并升级至 `^0.1.1`（源码运行时实际依赖该包，此前声明位置不准确）。
@@ -301,6 +309,14 @@ npm test        # 直接对 src/ 跑测试，无需先构建
 
 1. 增加 mount 方法;
 2. 补全 share 示例；
+
+### 0.3.0
+
+1. 整理 sample 目录与 share 示例页面（新增 `new-page-customshare-*`、`new-page-noshare-*`，原 `old-page` 重命名为 `origin-page`）。
+
+### 0.2.1
+
+1. 项目结构调整：示例代码统一迁移到 `sample/` 目录；补充 ESLint（`eslint:recommended`）、Prettier 配置与 `package-lock.json`。
 
 ### 0.2.0
 
