@@ -1,6 +1,6 @@
 {
     "name": "@mini-dev/hook",
-    "version": "0.5.2",
+    "version": "0.5.3",
     "description": "miniapp framework methods(App, Page, Component) hook",
     "publishConfig": {
         "access": "public"
